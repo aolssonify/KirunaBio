@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logga In - Kiruna</title>
+    <!-- Länk till extern CSS för styling -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Logga in</h1>
+        <!-- Navigation med länkar till produkter och registrering -->
+        <nav>
+            <ul>
+                <li><a href="products.php">Produkter</a></li>
+                <li><a href="register.html">Registrera dig</a></li>
+            </ul>
+        </nav>
+        <!-- Logotyp för Kiruna Biograf -->
+        <div class="logo-container">
+            <img src="images/Biograf logga.png" alt="Kiruna Biograf Logotyp" class="logo">
+        </div>
+    </header>
+
+    <main>
+        <!-- Inloggningsformulär -->
+        <div class="login-container">
+            <!-- Formuläret skickar POST-data till login.php för att hantera inloggning -->
+            <form action="login.php" method="post">
+                <!-- E-post fält -->
+                <label for="email">E-post:</label>
+                <input type="email" id="email" name="email" required>
+
+                <!-- Lösenord fält -->
+                <label for="password">Lösenord:</label>
+                <input type="password" id="password" name="password" required>
+
+                <!-- Inloggningsknapp -->
+                <button type="submit">Logga In</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Sidfot med upphovsrätt -->
+    <footer>
+        <p>&copy; 2024 Min Bio. Alla rättigheter förbehållna.</p>
+    </footer>
+</body>
+</html>
