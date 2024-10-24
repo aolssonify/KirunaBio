@@ -1,0 +1,241 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    color: #d4af37;
+}
+
+header {
+    background-color: #2a2a2a;
+    color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+header nav ul li a:hover {
+    color: #87CEEB;
+}
+
+.logo-container {
+    margin-right: 20px;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Main layout */
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr px; /* Snacksmeny och filmer */
+    gap: 20px;
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto; /* Centrerar innehållet på sidan */
+}
+
+/* Snacksmeny */
+#snacks {
+    background-color: #87CEEB;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    width: 75%;
+}
+
+/* Grid layout for snacks */
+#snacks ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tre kolumner */
+    grid-gap: 20px;
+    padding: 0;
+    list-style-type: none;
+}
+
+#snacks li {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: auto; /* Låter höjden vara flexibel */
+}
+
+#snacks img {
+    max-width: 25%; /* Anpassar bilden efter rutans storlek */
+    height: auto; /* Gör så att höjden anpassas efter bildens proportioner */
+    object-fit: contain; /* Se till att bilden fyller sin ruta på ett bra sätt */
+    margin-bottom: 10px;
+}
+
+/* Filmsektionen */
+#movies {
+    text-align: center;
+}
+
+.movie-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movie-list img {
+    width: 150px;
+    height: 100px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #2a2a2a;
+    color: #f1f1f1;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Styling för login informationen. */
+.login-info {
+    text-align: center;
+    margin: auto;
+    background-color: transparent;
+    font-weight: bold;
+    color: #d4af37;
+}
+
+/* Login Page Styles */
+.login-container {
+    background-color: #2a2a2a;
+    color: white;
+    padding: 40px;
+    margin: 0 auto;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-container h2 {
+    text-align: center;
+    color: #d4af37; /* Matches the gold color used in the navigation */
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 10px;
+    color: #f1f1f1;
+    font-size: 1.1em;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: white;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #87CEEB;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #d4af37;
+}
+
+.film-container {
+    background-color: #87CEEB;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tre kolumner */
+    grid-gap: 20px;
+    padding: 0;
+    list-style-type: none;
+    
+}
+
+.film {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    margin: 15px;
+    
+}
+
+.film img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.film-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.film:hover .film-description {
+    opacity: 1;
+}
+
+.kommande-filmer {
+    min-width: 100%;
+    background-color: #2a2a2a;
+    border: 2px dashed #87ceeb;
+    display: grid;
+}
+
+.kom-container {
+    display: flex;
+    justify-content: space-between;
+}
