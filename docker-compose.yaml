@@ -4,11 +4,12 @@ services:
   web:
     build: .
     ports:
-      - "8080:80"
+      - "80:80"  # Kör både din webbserver och phpMyAdmin på port 80
     volumes:
       - .:/var/www/html
     depends_on:
       - db
+    restart: always
 
   db:
     image: mysql:5.7
@@ -17,8 +18,9 @@ services:
       MYSQL_DATABASE: mydatabase
       MYSQL_USER: user
       MYSQL_PASSWORD: password
-    ports:
-      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+    restart: always
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -27,5 +29,4 @@ services:
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: rootpassword
-    ports:
-      - "8081:80"
+    restart: always
