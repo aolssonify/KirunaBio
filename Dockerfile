@@ -1,17 +1,18 @@
 # Använd officiell PHP-bild med Apache
 FROM php:8.0-apache
 
-# Installera MySQL PDO och andra tillägg som behövs
+# Installera MySQL PDO och MySQLi-tillägg
 RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-install mysqli
 
-# Kopiera din applikation till Apache dokumentrot
+# Kopiera applikationsfiler till Apache dokumentrot
 COPY . /var/www/html/
 
-# Ändra rättigheter så att Apache kan komma åt filerna
+# Ge rättigheter till Apache
 RUN chown -R www-data:www-data /var/www/html/
 
-# Exponera port 80 för Apache
+# Exponera port 80
 EXPOSE 80
 
-# Starta Apache när containern körs
+# Starta Apache
 CMD ["apache2-foreground"]
