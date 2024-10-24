@@ -1,20 +1,17 @@
-# Install Apache och PHP
+# Använd officiell PHP-bild med Apache
 FROM php:8.0-apache
 
-# Installera MySQL PDO-tillägget
+# Installera MySQL PDO och andra tillägg som behövs
 RUN docker-php-ext-install pdo pdo_mysql
 
-# Kopiera phpMyAdmin-filer till Apache dokumentroot
-COPY phpmyadmin/ /var/www/html/phpmyadmin/
+# Kopiera din applikation till Apache dokumentrot
+COPY . /var/www/html/
 
-# Kopiera Apache-konfiguration för phpMyAdmin
-COPY phpmyadmin.conf /etc/apache2/conf-available/phpmyadmin.conf
+# Ändra rättigheter så att Apache kan komma åt filerna
+RUN chown -R www-data:www-data /var/www/html/
 
-# Aktivera phpMyAdmin-konfiguration i Apache
-RUN a2enconf phpmyadmin
-
-# Exponera port 80
+# Exponera port 80 för Apache
 EXPOSE 80
 
-# Starta Apache
+# Starta Apache när containern körs
 CMD ["apache2-foreground"]
