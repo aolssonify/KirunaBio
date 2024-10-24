@@ -1,20 +1,17 @@
-# Använd officiell PHP-bild med Apache
+# Install Apache och PHP
 FROM php:8.0-apache
 
-# Installera MySQL PDO och andra tillägg som behövs
+# Installera MySQL PDO-tillägget
 RUN docker-php-ext-install pdo pdo_mysql
 
-# Kopiera applikationsfiler till Apache dokumentrot
-COPY . /var/www/html/
+# Kopiera phpMyAdmin-filer till Apache dokumentroot
+COPY phpmyadmin/ /var/www/html/phpmyadmin/
 
-# Kopiera phpMyAdmin-konfiguration till Apache
+# Kopiera Apache-konfiguration för phpMyAdmin
 COPY phpmyadmin.conf /etc/apache2/conf-available/phpmyadmin.conf
 
-# Aktivera phpMyAdmin-konfiguration
+# Aktivera phpMyAdmin-konfiguration i Apache
 RUN a2enconf phpmyadmin
-
-# Ge rättigheter till www-data
-RUN chown -R www-data:www-data /var/www/html/
 
 # Exponera port 80
 EXPOSE 80
