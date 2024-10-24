@@ -4,9 +4,7 @@ services:
   web:
     build: .
     ports:
-      - "8080:80"
-    volumes:
-      - .:/var/www/html
+      - "80:80"  # Webbservern exponerar port 80
     depends_on:
       - db
 
@@ -17,8 +15,8 @@ services:
       MYSQL_DATABASE: mydatabase
       MYSQL_USER: user
       MYSQL_PASSWORD: password
-    ports:
-      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -28,4 +26,5 @@ services:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: rootpassword
     ports:
-      - "8081:80"
+      - "80:80"  # phpMyAdmin exponerar också port 80
+
