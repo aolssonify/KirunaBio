@@ -12,7 +12,7 @@ services:
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: mydatabase
+      MYSQL_DATABASE: kirunabio
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     volumes:
